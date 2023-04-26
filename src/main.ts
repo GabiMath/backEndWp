@@ -21,6 +21,8 @@ async function bootstrap() {
 GlobalService.initClient();
 GlobalService.client.initialize();
 GlobalService.client.on('qr', async qr => {
+  console.log(qr);
+
   GlobalService.qr = qr.toString();
 })
 

@@ -20,7 +20,6 @@ export class WpMessageController {
 
   @Get('qr')
   async getQr() {
-    await GlobalService.client.initialize();
     return { message: GlobalService.qr };
   }
 

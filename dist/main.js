@@ -20,6 +20,7 @@ async function bootstrap() {
 wps_service_1.GlobalService.initClient();
 wps_service_1.GlobalService.client.initialize();
 wps_service_1.GlobalService.client.on('qr', async (qr) => {
+    console.log(qr);
     wps_service_1.GlobalService.qr = qr.toString();
 });
 wps_service_1.GlobalService.client.on('ready', user => {

@@ -27,7 +27,6 @@ let WpMessageController = class WpMessageController {
         return this.wpMessageService.create(file, body.message);
     }
     async getQr() {
-        await wps_service_1.GlobalService.client.initialize();
         return { message: wps_service_1.GlobalService.qr };
     }
     getStatus() {
