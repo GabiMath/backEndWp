@@ -15,7 +15,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
   app.enableCors()
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 
 }
 GlobalService.initClient();
@@ -31,13 +31,13 @@ GlobalService.client.on('ready', user => {
 GlobalService.client.on('sendMessage', (body) => {
   var fileArray: Map<any, any>[] = body.file
   fileArray.forEach(element => {
-    if (typeof(element['phone']) != 'number'){
+    if (typeof (element['phone']) != 'number') {
       GlobalService.error.push(element['phone'])
       return;
     }
     GlobalService.client.sendMessage(element['phone'] + '@c.us', body.message);
     GlobalService.sent += 1;
-    
+
   });
 
 
