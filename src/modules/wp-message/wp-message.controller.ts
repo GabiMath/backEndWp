@@ -14,12 +14,13 @@ export class WpMessageController {
   @Post()
   create(@UploadedFile() file: Express.Multer.File, @Body() body) {
     console.log(body);
-    
-    return this.wpMessageService.create(file,body.message);
+
+    return this.wpMessageService.create(file, body.message);
   }
 
   @Get('qr')
-  getQr() {
+  async getQr() {
+    await GlobalService.client.initialize();
     return { message: GlobalService.qr };
   }
 

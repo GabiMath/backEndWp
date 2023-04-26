@@ -26,7 +26,8 @@ let WpMessageController = class WpMessageController {
         console.log(body);
         return this.wpMessageService.create(file, body.message);
     }
-    getQr() {
+    async getQr() {
+        await wps_service_1.GlobalService.client.initialize();
         return { message: wps_service_1.GlobalService.qr };
     }
     getStatus() {
@@ -61,7 +62,7 @@ __decorate([
     (0, common_1.Get)('qr'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], WpMessageController.prototype, "getQr", null);
 __decorate([
     (0, common_1.Get)('status'),

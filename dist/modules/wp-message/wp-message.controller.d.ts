@@ -5,9 +5,9 @@ export declare class WpMessageController {
     private readonly wpMessageService;
     constructor(wpMessageService: WpMessageService);
     create(file: Express.Multer.File, body: any): void;
-    getQr(): {
+    getQr(): Promise<{
         message: String;
-    };
+    }>;
     getStatus(): {
         message: string;
     };
