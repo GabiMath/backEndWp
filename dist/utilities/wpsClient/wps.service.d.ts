@@ -4,5 +4,4 @@ export declare class GlobalService {
     static status: string;
     static sent: number;
     static error: Array<any>;
-    static initClient(): void;
 }

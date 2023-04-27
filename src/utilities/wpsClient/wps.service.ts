@@ -2,7 +2,7 @@ const { Client } = require('whatsapp-web.js');
 
 export class GlobalService {
 
-    static client: any;
+    static client = new Client({});
 
     static qr: String;
 
@@ -12,9 +12,7 @@ export class GlobalService {
 
     static error: Array<any> = [];
 
-    static initClient() {
-        this.client = new Client({})
-    }
+
 
 
 }

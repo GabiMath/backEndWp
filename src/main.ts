@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { GlobalService } from './utilities/wpsClient/wps.service';
-const qrcode = require('qrcode');
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -14,11 +14,11 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  app.enableCors()
+  
   await app.listen(process.env.PORT || 3000);
 
 }
-GlobalService.initClient();
+
 GlobalService.client.initialize();
 GlobalService.client.on('qr', async qr => {
   console.log(qr);
