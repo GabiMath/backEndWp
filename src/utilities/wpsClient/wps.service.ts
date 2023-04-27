@@ -13,6 +13,8 @@ export class GlobalService {
     static error: Array<any> = [];
 
     static initClient() {
-        this.client = new Client()
+        this.client = new Client({})
     }
+
+
 }
